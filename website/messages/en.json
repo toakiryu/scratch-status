@@ -37,8 +37,11 @@
       "title": "System Status",
       "versionTitle": "Version:",
       "uptimeTitle": "Uptime:",
+      "uptimeTitle-help": "This value is uncertain.",
       "loadTitle": "Load:",
-      "timestampTitle": "Timestamp:"
+      "loadTitle-help": "This value is uncertain.",
+      "timestampTitle": "Timestamp:",
+      "timestampTitle-help": "Time when the status was retrieved."
     },
     "sqlStatus": {
       "title": "SQL Status",
@@ -49,10 +52,18 @@
     },
     "sql": {
       "primary": "Primary DB",
+      "primary-help": "Main database",
       "replica": "Replica DB",
+      "replica-help": "Replica database (read-only)",
       "ssl": "SSL",
+      "destroyed": "Connections destroyed",
+      "connections": "Connections",
+      "min": "Min",
+      "max": "Max",
       "used": "Used",
-      "free": "Free"
+      "free": "Free",
+      "acquires": "Pending",
+      "creates": "Creating"
     },
     "cacheStatus": {
       "title": "Cache Status",
