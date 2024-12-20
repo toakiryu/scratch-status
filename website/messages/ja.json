@@ -37,8 +37,11 @@
       "title": "システムステータス",
       "versionTitle": "バージョン:",
       "uptimeTitle": "稼働時間:",
+      "uptimeTitle-help": "この項目は不確定です。",
       "loadTitle": "負荷:",
-      "timestampTitle": "タイムスタンプ:"
+      "loadTitle-help": "この項目は不確定です。",
+      "timestampTitle": "タイムスタンプ:",
+      "timestampTitle-help": "ステータス取得日時"
     },
     "sqlStatus": {
       "title": "SQLステータス",
@@ -54,12 +57,13 @@
       "replica-help": "レプリカデータベース（読み取り専用）",
       "ssl": "SSL",
       "destroyed": "接続破棄",
-      "min": "最小接続数",
-      "max": "最大接続数",
+      "connections": "接続",
+      "min": "最小",
+      "max": "最大",
       "used": "使用中",
       "free": "使用可能",
-      "pendingAcquires": "接続待機中",
-      "pendingCreates": "接続作成中"
+      "acquires": "待機中",
+      "creates": "作成中"
     },
     "cacheStatus": {
       "title": "キャッシュステータス",
