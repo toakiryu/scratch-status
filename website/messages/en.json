@@ -1,0 +1,63 @@
+{
+  "Metadata": {
+    "title": "Scratch Status",
+    "description": "Monitor the real-time status of Scratch services, including uptime, version, server load, and database health. Stay informed with detailed status indicators for Scratch's key services and cache connectivity."
+  },
+  "PageError": {
+    "title": "Unknown error",
+    "retry": "Retry"
+  },
+  "PageNotFound": {
+    "title": "Page not found"
+  },
+  "theme": {
+    "Toggle theme": "Toggle theme",
+    "Mode": "Mode",
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System"
+  },
+  "languages": {
+    "Language": "Language",
+    "Select a language": "Select a language"
+  },
+  "statusMonitor": {
+    "title": "Scratch Status",
+    "Powered by Scratch API": "Powered by Scratch API",
+    "errorFetchStatus": "Failed to fetch status information.",
+    "yes": "Yes",
+    "no": "No",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "status": {
+      "header": "Status Overview",
+      "description": "Current system status is shown below."
+    },
+    "systemStatus": {
+      "title": "System Status",
+      "versionTitle": "Version:",
+      "uptimeTitle": "Uptime:",
+      "loadTitle": "Load:",
+      "timestampTitle": "Timestamp:"
+    },
+    "sqlStatus": {
+      "title": "SQL Status",
+      "main": "Main",
+      "projectComments": "Project Comments",
+      "galleryComments": "Gallery Comments",
+      "userProfileComments": "User Profile Comments"
+    },
+    "sql": {
+      "primary": "Primary DB",
+      "replica": "Replica DB",
+      "ssl": "SSL",
+      "used": "Used",
+      "free": "Free"
+    },
+    "cacheStatus": {
+      "title": "Cache Status",
+      "connected": "Connected",
+      "ready": "Ready"
+    }
+  }
+}

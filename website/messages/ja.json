@@ -1,0 +1,70 @@
+{
+  "Metadata": {
+    "title": "Scratch ステータス",
+    "description": "Scratchサービスの稼働状況をリアルタイムで監視し、稼働時間、バージョン、サーバー負荷、データベースの健康状態などの詳細なステータス情報を提供します。Scratchの主要なサービスとキャッシュ接続の状態を確認できます。"
+  },
+  "PageError": {
+    "title": "不明なエラーが発生",
+    "retry": "リトライ"
+  },
+  "PageNotFound": {
+    "title": "ページが見つかりません"
+  },
+  "theme": {
+    "Toggle theme": "テーマを切り替える",
+    "Mode": "モード",
+    "Light": "ライト",
+    "Dark": "ダーク",
+    "System": "システム"
+  },
+  "languages": {
+    "Language": "言語",
+    "Select a language": "言語を選択"
+  },
+  "statusMonitor": {
+    "title": "Scratch ステータス",
+    "Powered by Scratch API": "Scratch API 提供",
+    "errorFetchStatus": "ステータス情報を取得できませんでした。",
+    "yes": "はい",
+    "no": "いいえ",
+    "enabled": "有効",
+    "disabled": "無効",
+    "status": {
+      "header": "ステータス概要",
+      "description": "現在のシステムステータスです。"
+    },
+    "systemStatus": {
+      "title": "システムステータス",
+      "versionTitle": "バージョン:",
+      "uptimeTitle": "稼働時間:",
+      "loadTitle": "負荷:",
+      "timestampTitle": "タイムスタンプ:"
+    },
+    "sqlStatus": {
+      "title": "SQLステータス",
+      "main": "メイン",
+      "projectComments": "プロジェクトコメント",
+      "galleryComments": "ギャラリーコメント",
+      "userProfileComments": "ユーザープロフィールコメント"
+    },
+    "sql": {
+      "primary": "プライマリDB",
+      "primary-help": "メインデータベース",
+      "replica": "レプリカDB",
+      "replica-help": "レプリカデータベース（読み取り専用）",
+      "ssl": "SSL",
+      "destroyed": "接続破棄",
+      "min": "最小接続数",
+      "max": "最大接続数",
+      "used": "使用中",
+      "free": "使用可能",
+      "pendingAcquires": "接続待機中",
+      "pendingCreates": "接続作成中"
+    },
+    "cacheStatus": {
+      "title": "キャッシュステータス",
+      "connected": "接続中",
+      "ready": "準備完了"
+    }
+  }
+}

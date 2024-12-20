@@ -1,1 +1,3 @@
-# GitHub repository template
+# Scratch ステータス
+
+Scratch サービスのステータス情報を利用者にわかりやすい UI で状況をお知らせします。この機能は `Scratch API` を使用し、サービスのステータス情報を取得しています。API サーバーがダウンした場合等サービスは機能しません。
