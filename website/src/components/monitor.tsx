@@ -513,7 +513,9 @@ const StatusMonitorElement = React.forwardRef<
                     {t("systemStatus.loadTitle")}
                   </h3>
                   <p className="text-sm opacity-70 overflow-auto mt-1">
-                    {status.load.join(" / ")}
+                    {status.load && Array.isArray(status.load)
+                      ? status.load.join(" / ")
+                      : "N/A"}
                   </p>
                 </div>
                 <div className="mt-2">
