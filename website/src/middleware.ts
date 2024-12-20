@@ -1,22 +1,26 @@
+import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
+import { routing } from "./i18n/routing";
+
+// 既存のミドルウェアを作成
+const intlMiddleware = createMiddleware(routing);
 
 export function middleware(request: NextRequest) {
   // intlMiddleware を実行して、結果を取得
-  let response;
+  let response = intlMiddleware(request);
+
   // intlMiddleware がレスポンスを返さなかった場合、デフォルトのNextResponseを作成
   if (!response) {
     response = NextResponse.next();
   }
+
   // カスタムヘッダーを追加する処理
   response.headers.set("x-pathname", request.nextUrl.pathname);
+
   return response;
 }
 
 export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-    // Always run for API routes
-    "/(api|trpc)(.*)",
-  ],
+  // Match only internationalized pathnames
+  matcher: ["/", `/(ja|en)/:path*`],
 };
