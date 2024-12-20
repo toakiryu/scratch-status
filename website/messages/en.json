@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Scratch Status",
-    "description": "This project is a Next.js template aimed at providing a robust starting point for building modern web applications. It comes with pre-configured localization support, theme toggling, and various other features to streamline development."
+    "description": "Monitor the real-time status of Scratch services, including uptime, version, server load, and database health. Stay informed with detailed status indicators for Scratch's key services and cache connectivity."
   },
   "PageError": {
     "title": "Unknown error",
