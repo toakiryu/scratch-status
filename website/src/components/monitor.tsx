@@ -1,6 +1,13 @@
 "use client";
 
-import React, { ReactNode, Suspense, useEffect, useState } from "react";
+import React, {
+  ChangeEvent,
+  ReactNode,
+  Suspense,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import { cn } from "@/lib/utils";
 import {
   ScratchAPIgetHealth,
@@ -21,7 +28,6 @@ import {
 import { useTheme } from "next-themes";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import config from "../../richtpl.config";
-import { setUserLocale } from "@/services/locale";
 import {
   CalendarSearch,
   CircleFadingArrowUp,
@@ -38,6 +44,8 @@ import {
   Sun,
   User,
 } from "lucide-react";
+import { useParams } from "next/navigation";
+import { Locale, usePathname, useRouter } from "@/i18n/routing";
 
 function StatusMonitorElementSkeletonContents({
   status,
@@ -160,8 +168,12 @@ function StatusMonitorElementHeader({
 }
 
 function StatusMonitorElementFooter() {
+  const router = useRouter();
   const theme = useTheme();
   const locale = useLocale();
+  const [isPending, startTransition] = useTransition();
+  const pathname = usePathname();
+  const params = useParams();
   const t = useTranslations("theme");
   const langT = useTranslations("languages");
   const [isClient, setIsClient] = useState(false);
@@ -178,6 +190,19 @@ function StatusMonitorElementFooter() {
   };
 
   if (!isClient) return null;
+
+  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    const nextLocale = event.target.value as Locale;
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        { pathname, params },
+        { locale: nextLocale }
+      );
+    });
+  }
 
   function getThemeIcon(theme: string) {
     if (theme === "system") return <MonitorCog className="w-5" />;
@@ -209,7 +234,7 @@ function StatusMonitorElementFooter() {
           startContent={<Earth className="w-5" />}
           selectedKeys={[locale || ""]}
           onChange={(e) => {
-            setUserLocale(e.target.value), returnTop();
+            onSelectChange(e), returnTop();
           }}
           className="w-fit min-w-32 max-w-full"
         >
