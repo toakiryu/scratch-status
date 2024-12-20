@@ -233,6 +233,7 @@ function StatusMonitorElementFooter() {
           size="sm"
           startContent={<Earth className="w-5" />}
           selectedKeys={[locale || ""]}
+          isLoading={isPending}
           onChange={(e) => {
             onSelectChange(e), returnTop();
           }}
