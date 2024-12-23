@@ -96,3 +96,14 @@
   /* Google Chrome、Safariへの対応 */
   display: none;
 }
+
+.giscus {
+  position: relative;
+  width: 100%;
+  max-width: 56rem /* 896px */;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem /* 32px */;
+  padding-left: 2rem /* 32px */;
+  padding-bottom: 50px;
+}
