@@ -33,6 +33,10 @@
       "header": "ステータス概要",
       "description": "現在のシステムステータスです。"
     },
+    "database": {
+      "success": "クラウド変数サービスはオンラインです",
+      "danger": "クラウド変数サービスが停止しています"
+    },
     "systemStatus": {
       "title": "システムステータス",
       "versionTitle": "バージョン:",
