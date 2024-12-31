@@ -18,7 +18,7 @@ export interface ScratchAPIgetHealthSqlProps {
   replica: ScratchAPIgetHealthSqlContentProps;
 }
 
-export interface ScratchAPIgetHealthProps {
+export interface ScratchAPIgetStatusProps {
   version: string; // バージョン
   uptime: number; // 稼働時間？
   load: number[]; // 負荷？
@@ -33,19 +33,32 @@ export interface ScratchAPIgetHealthProps {
     connected: boolean; // キャッシュサーバーが接続されているか
     ready: boolean; // キャッシュサーバーが使用可能な状態か
   };
+  database: boolean;
 }
 
-export interface ScratchAPIgetHealthResponse {
+export interface ScratchAPIgetStatusResponse {
   status: "success" | "error";
-  data?: ScratchAPIgetHealthProps;
+  data?: ScratchAPIgetStatusProps;
   error?: unknown;
 }
 
-export async function ScratchAPIgetHealth(): Promise<ScratchAPIgetHealthResponse> {
+export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse> {
   try {
-    const res = await fetch("https://api.scratch.mit.edu/health");
-    const data = await res.json();
-    return { status: "success", data: data };
+    // 基本ステータスの取得
+    const healthRes = await fetch("https://api.scratch.mit.edu/health");
+    const healthData: ScratchAPIgetStatusProps = await healthRes.json();
+
+    // データベースステータスの取得
+    try {
+      await fetch(
+        "https://clouddata.scratch.mit.edu/logs?projectid=888571367&limit=5&offset=0"
+      );
+      healthData.database = true;
+    } catch {
+      healthData.database = false;
+    }
+
+    return { status: "success", data: healthData };
   } catch (error) {
     return { status: "error", error: error };
   }
