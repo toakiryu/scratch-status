@@ -33,9 +33,22 @@
       "header": "Status Overview",
       "description": "Current system status is shown below."
     },
-    "database": {
-      "success": "The cloud variable service is online.",
-      "danger": "The cloud variable service is down."
+    "statusCards": {
+      "website": {
+        "title": "Website",
+        "success": "Operating normally",
+        "danger": "An issue has occurred"
+      },
+      "search": {
+        "title": "Project Search",
+        "success": "Operating normally",
+        "danger": "An issue has occurred"
+      },
+      "database": {
+        "title": "Cloud Variables",
+        "success": "Operating normally",
+        "danger": "An issue has occurred"
+      }
     },
     "systemStatus": {
       "title": "System Status",

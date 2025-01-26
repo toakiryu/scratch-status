@@ -19,6 +19,8 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
+import { HeroUIProvider } from "@heroui/react";
+
 export type LayoutProps = {
   locale: string;
 };
@@ -150,20 +152,26 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+      <link rel="preconnect" href="https://giscus.app"/>
+      <link rel="preconnect" href="https://github.githubassets.com"/>
+      </head>
       <body
         className={`${inter.className} relative w-full h-full min-h-dvh overflow-x-clip`}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme={config.themeConfig.colorMode.defaultMode}
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <main className="w-full h-full min-h-dvh">{children}</main>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <HeroUIProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme={config.themeConfig.colorMode.defaultMode}
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NextIntlClientProvider messages={messages}>
+              <main className="w-full h-full min-h-dvh">{children}</main>
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );

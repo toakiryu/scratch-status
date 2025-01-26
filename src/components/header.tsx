@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar, CircularProgress } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+import { Avatar, CircularProgress } from "@heroui/react";
 
 export default function StatusMonitorElementHeader({
   remaining,

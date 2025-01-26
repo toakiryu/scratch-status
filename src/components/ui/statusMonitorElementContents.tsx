@@ -1,22 +1,12 @@
 "use client";
 
-import React, { ReactNode, useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import {
-  ScratchAPIgetStatus,
-  ScratchAPIgetStatusProps,
-  ScratchAPIgetHealthSqlProps,
-} from "./api/scratch/health";
-import {
-  Alert,
-  Chip,
-  CircularProgress,
-  Image,
-  Skeleton,
-  Tooltip,
-} from "@nextui-org/react";
+import { ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import config from "../../richtpl.config";
+import { Alert, Chip, Skeleton, Tooltip } from "@heroui/react";
+import {
+  ScratchAPIgetHealthSqlProps,
+  ScratchAPIgetStatusProps,
+} from "../api/scratch/health";
 import {
   CalendarSearch,
   CircleFadingArrowUp,
@@ -29,9 +19,18 @@ import {
   PanelsTopLeft,
   User,
 } from "lucide-react";
-import StatusMonitorElementHeader from "./header";
+import config from "../../../richtpl.config";
+import StatusCards from "./statusCards";
 
-function StatusMonitorElementContents({
+function ComponentContainer({ children }: { children: ReactNode }) {
+  return (
+    <div className="p-5 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg">
+      {children}
+    </div>
+  );
+}
+
+export default function StatusMonitorElementContents({
   status,
   isLoading,
 }: {
@@ -247,12 +246,35 @@ function StatusMonitorElementContents({
 
     return (
       <section id="components-container" className="sm:!px-5 my-10">
-        <div className="my-10">
-          {status.database ? (
-            <Alert color={`success`} title={t("database.success")} />
-          ) : (
-            <Alert color={`danger`} title={t("database.danger")} />
-          )}
+        <div>
+          <StatusCards
+            statusList={[
+              {
+                title: t("statusCards.website.title"),
+                descriptions: {
+                  success: t("statusCards.website.success"),
+                  danger: t("statusCards.website.danger"),
+                },
+                status: status.website,
+              },
+              {
+                title: t("statusCards.search.title"),
+                descriptions: {
+                  success: t("statusCards.search.success"),
+                  danger: t("statusCards.search.danger"),
+                },
+                status: status.search,
+              },
+              {
+                title: t("statusCards.database.title"),
+                descriptions: {
+                  success: t("statusCards.database.success"),
+                  danger: t("statusCards.database.danger"),
+                },
+                status: status.database,
+              },
+            ]}
+          />
         </div>
         <hr className="my-5" />
         <div className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-5">
@@ -416,100 +438,3 @@ function StatusMonitorElementContents({
     }
   }
 }
-
-function ComponentContainer({ children }: { children: ReactNode }) {
-  return (
-    <div className="p-5 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg">
-      {children}
-    </div>
-  );
-}
-
-export interface StatusMonitorElementProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
-
-const StatusMonitorElement = React.forwardRef<
-  HTMLDivElement,
-  StatusMonitorElementProps
->(({ className, ...props }, ref) => {
-  const t = useTranslations("statusMonitor");
-  const remaining = 10;
-  const [status, setStatus] = useState<ScratchAPIgetStatusProps | undefined>(
-    undefined
-  );
-  const [remainingTime, setRemainingTime] = useState<number>(remaining);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // ステータスの取得関数
-  const fetchStatus = async () => {
-    try {
-      setIsLoading(true);
-      const res = await ScratchAPIgetStatus();
-      setStatus(res.data);
-    } catch (error) {
-      console.error(t("errorFetchStatus"), error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    // 初回のデータ取得
-    fetchStatus();
-
-    // 残り時間のカウントダウン用インターバル
-    const countdownInterval = setInterval(() => {
-      setRemainingTime((prev) => {
-        if (prev <= 0) {
-          return remaining; // remainingが1になるとリセットして再取得
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    // クリーンアップ
-    return () => {
-      clearInterval(countdownInterval);
-    };
-  }, [remaining]); // remainingが変更されるたびに更新
-
-  // 残り時間が1になったらデータを再取得
-  useEffect(() => {
-    if (remainingTime === 0) {
-      fetchStatus();
-    }
-  }, [remainingTime]);
-
-  return (
-    <div
-      className={cn("relative w-full min-h-dvh", className)}
-      ref={ref}
-      {...props}
-    >
-      <div className="relative bg-yellow-500">
-        <div className="container flex justify-center items-center max-w-4xl h-80">
-          <Image alt="Scratch" src="/wp-content/scratch.png" width={150} />
-        </div>
-      </div>
-      <div className="relative container max-w-4xl min-h-dvh">
-        <CircularProgress
-          aria-label="Loading..."
-          color="warning"
-          maxValue={remaining}
-          minValue={0}
-          value={remainingTime}
-          className="fixed z-50 md:!hidden bottom-3 left-3 rounded-full shadow shadow-orange-200"
-        />
-        <StatusMonitorElementHeader
-          remaining={remaining}
-          remainingTime={remainingTime}
-        />
-        <StatusMonitorElementContents status={status} isLoading={isLoading} />
-      </div>
-    </div>
-  );
-});
-
-StatusMonitorElement.displayName = "StatusMonitorElement";
-
-export { StatusMonitorElement };
