@@ -33,9 +33,22 @@
       "header": "ステータス概要",
       "description": "現在のシステムステータスです。"
     },
-    "database": {
-      "success": "クラウド変数サービスはオンラインです",
-      "danger": "クラウド変数サービスが停止しています"
+    "statusCards": {
+      "website": {
+        "title": "ウェブサイト",
+        "success": "正常に動作しています",
+        "danger": "問題が発生しています"
+      },
+      "search": {
+        "title": "プロジェクト検索",
+        "success": "正常に動作しています",
+        "danger": "問題が発生しています"
+      },
+      "database": {
+        "title": "クラウド変数",
+        "success": "正常に動作しています",
+        "danger": "問題が発生しています"
+      }
     },
     "systemStatus": {
       "title": "システムステータス",

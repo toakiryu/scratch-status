@@ -33,6 +33,8 @@ export interface ScratchAPIgetStatusProps {
     connected: boolean; // キャッシュサーバーが接続されているか
     ready: boolean; // キャッシュサーバーが使用可能な状態か
   };
+  website: boolean;
+  search: boolean;
   database: boolean;
 }
 
@@ -47,6 +49,30 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
     // 基本ステータスの取得
     const healthRes = await fetch("https://api.scratch.mit.edu/health");
     const healthData: ScratchAPIgetStatusProps = await healthRes.json();
+
+    // データベースステータスの取得
+    try {
+      await fetch(
+        "https://scratch.mit.edu"
+      );
+      healthData.website = true;
+    } catch {
+      healthData.website = false;
+    }
+
+    // 検索APIステータスの取得
+    try {
+      const res = await fetch(
+        "https://api.scratch.mit.edu/explore/projects?limit=16&offset=0&language=ja&mode=trending&q=*"
+      );
+      const data = await res.json();
+      if (JSON.stringify(data).length > 0) {
+        healthData.search = true;
+      }
+      healthData.search = false;
+    } catch {
+      healthData.search = false;
+    }
 
     // データベースステータスの取得
     try {

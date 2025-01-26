@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-rich-tpl",
+  "name": "scratch-status",
   "version": "0.2.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/progress": "^2.2.4",
-    "@nextui-org/react": "^2.6.8",
-    "@nextui-org/spinner": "^2.2.4",
-    "@nextui-org/system": "^2.4.4",
-    "@nextui-org/theme": "^2.4.3",
+    "@heroui/react": "^2.6.14",
+    "@heroui/system": "^2.4.7",
+    "@heroui/theme": "^2.4.6",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.4",
-    "framer-motion": "^11.15.0",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.469.0",
     "next": "15.1.2",
     "next-intl": "^3.26.2",

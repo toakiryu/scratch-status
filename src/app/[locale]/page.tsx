@@ -1,7 +1,9 @@
-import Footer from "@/components/footer";
-import { GiscusContent } from "@/components/giscus";
-import { StatusMonitorElement } from "@/components/monitor";
 import { Suspense } from "react";
+import { GiscusContent } from "@/components/giscus";
+
+import lazyImport from "@/components/lazyImport";
+const StatusMonitorElement = lazyImport(() => import("@/components/monitor"))
+const Footer = lazyImport(() => import("@/components/footer"))
 
 export default async function Home() {
   return (

@@ -5,8 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 import { Locale, usePathname, useRouter } from "@/i18n/routing";
-import { Select, SelectItem } from "@nextui-org/react";
 import { Earth, MonitorCog, Moon, Sun } from "lucide-react";
+import { Select, SelectItem } from "@heroui/react";
 import config from "../../richtpl.config";
 
 export default function Footer() {
