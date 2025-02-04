@@ -52,9 +52,7 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
 
     // データベースステータスの取得
     try {
-      await fetch(
-        "https://scratch.mit.edu"
-      );
+      await fetch("https://scratch.mit.edu");
       healthData.website = true;
     } catch {
       healthData.website = false;
@@ -68,8 +66,9 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
       const data = await res.json();
       if (JSON.stringify(data).length > 0) {
         healthData.search = true;
+      } else {
+        healthData.search = false;
       }
-      healthData.search = false;
     } catch {
       healthData.search = false;
     }
