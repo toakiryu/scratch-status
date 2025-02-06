@@ -37,16 +37,19 @@
       "website": {
         "title": "Website",
         "success": "Operating normally",
+        "timeout": "Significant delay occurred",
         "danger": "An issue has occurred"
       },
       "search": {
         "title": "Project Search",
         "success": "Operating normally",
+        "timeout": "Significant delay occurred",
         "danger": "An issue has occurred"
       },
       "database": {
         "title": "Cloud Variables",
         "success": "Operating normally",
+        "timeout": "Significant delay occurred",
         "danger": "An issue has occurred"
       }
     },

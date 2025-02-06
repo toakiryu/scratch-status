@@ -11,7 +11,9 @@ import {
 import StatusMonitorElementHeader from "./header";
 
 import lazyImport from "@/components/lazyImport";
-const StatusMonitorElementContents = lazyImport(() => import("@/components/ui/statusMonitorElementContents"))
+const StatusMonitorElementContents = lazyImport(
+  () => import("@/components/ui/statusMonitorElementContents")
+);
 
 export interface StatusMonitorElementProps
   extends React.HTMLAttributes<HTMLDivElement> {}
@@ -26,18 +28,20 @@ const StatusMonitorElement = React.forwardRef<
     undefined
   );
   const [remainingTime, setRemainingTime] = useState<number>(remaining);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<"loading" | "success" | "error">(
+    "loading"
+  );
 
   // ステータスの取得関数
   const fetchStatus = async () => {
     try {
-      setIsLoading(true);
       const res = await ScratchAPIgetStatus();
+      console.log(res)
       setStatus(res.data);
+      setIsLoading("success");
     } catch (error) {
       console.error(t("errorFetchStatus"), error);
-    } finally {
-      setIsLoading(false);
+      setIsLoading("error");
     }
   };
 

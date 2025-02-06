@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-import { CircleAlert, CircleCheck } from "lucide-react";
+import { CircleAlert, CircleCheck, TimerOff } from "lucide-react";
+import { statusType } from "../api/scratch/health";
 
 export default function StatusCards({
   classNames,
@@ -13,9 +14,10 @@ export default function StatusCards({
     title: string;
     descriptions?: {
       success?: string;
+      timeout?: string;
       danger?: string;
     };
-    status: boolean;
+    status: statusType;
   }[];
 }) {
   return (
@@ -38,19 +40,31 @@ export default function StatusCards({
               <h1 className="font-bold text-xl">{statusItem.title}</h1>
               <p
                 className={`text-sm ${
-                  statusItem.status ? "text-green-500" : "text-red-500"
+                  statusItem.status === "success"
+                    ? "text-green-500"
+                    : statusItem.status === "timeout"
+                    ? "text-yellow-500"
+                    : "text-red-500"
                 } mt-2`}
               >
-                {statusItem.status
-                  ? statusItem?.descriptions?.success
-                  : statusItem?.descriptions?.danger}
+                {statusItem.status === "success"
+                  ? statusItem?.descriptions?.success || "Success"
+                  : statusItem.status === "timeout"
+                  ? statusItem.descriptions?.timeout || "Timeout"
+                  : statusItem?.descriptions?.danger || "Error"}
               </p>
             </div>
             <div className="mb-auto">
-              {statusItem.status ? (
+              {statusItem.status === "success" ? (
                 <CircleCheck className="text-green-500" />
               ) : (
-                <CircleAlert className="text-red-500" />
+                <>
+                  {statusItem.status === "timeout" ? (
+                    <TimerOff className="text-yellow-500" />
+                  ) : (
+                    <CircleAlert className="text-red-500" />
+                  )}
+                </>
               )}
             </div>
           </div>
