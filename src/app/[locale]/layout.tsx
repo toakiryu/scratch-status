@@ -21,6 +21,8 @@ import { routing } from "@/i18n/routing";
 
 import { HeroUIProvider } from "@heroui/react";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 export type LayoutProps = {
   locale: string;
 };
@@ -150,11 +152,14 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
 
+  const gaId = process.env.GA_ID || "";
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-      <link rel="preconnect" href="https://giscus.app"/>
-      <link rel="preconnect" href="https://github.githubassets.com"/>
+        <link rel="preconnect" href="https://giscus.app" />
+        <link rel="preconnect" href="https://github.githubassets.com" />
+        <GoogleAnalytics gaId={gaId} />
       </head>
       <body
         className={`${inter.className} relative w-full h-full min-h-dvh overflow-x-clip`}
