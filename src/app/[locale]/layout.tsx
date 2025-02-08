@@ -159,8 +159,8 @@ export default async function LocaleLayout({
       <head>
         <link rel="preconnect" href="https://giscus.app" />
         <link rel="preconnect" href="https://github.githubassets.com" />
-        <GoogleAnalytics gaId={gaId} />
       </head>
+      <GoogleAnalytics gaId={gaId} />
       <body
         className={`${inter.className} relative w-full h-full min-h-dvh overflow-x-clip`}
         suppressHydrationWarning
