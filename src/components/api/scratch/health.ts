@@ -162,7 +162,7 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
     }, 5000);
 
     const response = await fetch(url, { signal: abortController.signal });
-    console.log("1:", response.status);
+
     if (response.status === 200) {
       const data = await response.json();
       healthData = data;
@@ -200,7 +200,7 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
     }, 5000);
 
     const response = await fetch(url, { signal: abortController.signal });
-    console.log("2:", response.status);
+
     if (response.status === 200) {
       healthData.website = "success";
     }
@@ -238,7 +238,7 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
     }, 5000);
 
     const response = await fetch(url, { signal: abortController.signal });
-    console.log("3:", response.status);
+
     if (response.status === 200) {
       const data = await response.json();
       if (JSON.stringify(data).length > 0) {
@@ -280,7 +280,7 @@ export async function ScratchAPIgetStatus(): Promise<ScratchAPIgetStatusResponse
     }, 5000);
 
     const response = await fetch(url, { signal: abortController.signal });
-    console.log("4:", response.status);
+
     if (response.status === 200) {
       healthData.database = "success";
     } else if (response.status === 504) {

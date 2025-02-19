@@ -36,7 +36,6 @@ const StatusMonitorElement = React.forwardRef<
   const fetchStatus = async () => {
     try {
       const res = await ScratchAPIgetStatus();
-      console.log(res)
       setStatus(res.data);
       setIsLoading("success");
     } catch (error) {
