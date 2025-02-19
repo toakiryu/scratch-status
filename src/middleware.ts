@@ -27,17 +27,13 @@ export async function middleware(request: NextRequest) {
   // 言語部分を削除したパスを取得
   const pathWithoutLocale = currentPath.replace(regex, "");
 
-  // メンテナンスモードのリダイレクト
   if (maintenance === "true" && pathWithoutLocale !== `/maintenance`) {
     return NextResponse.redirect(
       new URL(`/${locale}/maintenance`, request.url)
     );
   } else if (maintenance !== "true" && pathWithoutLocale === `/maintenance`) {
     return NextResponse.redirect(new URL(`/${locale}/`, request.url));
-  }
-
-  // リクエスト制限のリダイレクト
-  if (requestLimit === "true" && pathWithoutLocale !== `/requestLimit`) {
+  } else if (requestLimit === "true" && pathWithoutLocale !== `/requestLimit`) {
     return NextResponse.redirect(
       new URL(`/${locale}/requestLimit`, request.url)
     );

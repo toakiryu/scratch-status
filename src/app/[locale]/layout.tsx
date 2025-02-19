@@ -173,7 +173,7 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <NextIntlClientProvider messages={messages}>
-              <main className="w-full h-full min-h-dvh">{children}</main>
+              <main className="w-full h-full">{children}</main>
             </NextIntlClientProvider>
           </ThemeProvider>
         </HeroUIProvider>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useTransition } from "react";
+import { ChangeEvent, Suspense, useTransition } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
@@ -15,6 +15,7 @@ import { Select, SelectItem } from "@heroui/react";
 import { ColorModeToggle } from "@/components/ui/color-mode-toggle.tsx";
 
 import config from "../../../../richtpl.config";
+import { GiscusContent } from "@/components/giscus";
 
 export default function RequestLimitPage() {
   const router = useRouter();
@@ -48,8 +49,8 @@ export default function RequestLimitPage() {
   }
 
   return (
-    <div className="flex w-full h-full min-h-dvh items-center justify-center text-center">
-      <div className="container max-w-5xl">
+    <div className="flex w-full h-full min-h-[calc(dvh-20%)] items-center justify-center text-center">
+      <div className="container max-w-5xl mt-20 mb-10">
         <div className="mb-5">
           <div className="flex justify-center items-center w-fit px-3 py-1 border rounded-full">
             <Image
@@ -102,6 +103,44 @@ export default function RequestLimitPage() {
               {t("description.fanboxLink")}
             </Link>
           </p>
+
+          <div className="text-sm text-default-500 mt-3">
+            <p>Contact:</p>
+            <div className="flex flex-wrap gap-3 w-full mt-1">
+              <Link
+                href="https://l.toakiryu.com/website"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                Website
+              </Link>
+              <Link
+                href="https://l.toakiryu.com/github"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                GitHub
+              </Link>
+              <Link
+                href="https://l.toakiryu.com/x"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                X(Twitter)
+              </Link>
+              <Link
+                href="https://l.toakiryu.com/discord"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                Discord
+              </Link>
+            </div>
+          </div>
         </section>
         <div className="flex flex-wrap items-center gap-3 mt-10">
           <ColorModeToggle />
@@ -125,6 +164,9 @@ export default function RequestLimitPage() {
             })}
           </Select>
         </div>
+        <Suspense>
+          <GiscusContent />
+        </Suspense>
       </div>
     </div>
   );
