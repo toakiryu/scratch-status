@@ -21,6 +21,35 @@
     "Language": "Language",
     "Select a language": "Select a language"
   },
+  "pages": {
+    "requestLimit": {
+      "title": "Request Limit Active",
+      "description": {
+        "part1": "Thank you for using this site.",
+        "part2": "We are grateful to have so many users.",
+        "part3": "This site is hosted on <strong>Vercel's free plan</strong>.",
+        "part4": "Currently, we are nearing the hosting service limits, so access is temporarily restricted.",
+        "part5": "To remove the restriction, one of the following actions is required:",
+        "list1": "Wait for the reset period of Vercel's usage status.",
+        "list2": "Upgrade the hosting plan.",
+        "part6": "However, currently <strong>we do not have enough funds to upgrade the plan</strong>.",
+        "part7": "Therefore, we have no choice but to impose access restrictions. Thank you for your understanding.",
+        "support": "If you would like to support the operation, you can do so here:",
+        "fanboxLink": "https://toakiryu.fanbox.cc"
+      }
+    },
+    "maintenance": {
+      "title": "Under Maintenance",
+      "description": {
+        "part1": "Thank you for using our site.",
+        "part2": "Thanks to your support, our site has gained a lot of users, and we are currently undergoing temporary maintenance to improve the service.",
+        "part3": "We are working hard to provide a more stable service after the maintenance.",
+        "part4": "We apologize for the inconvenience, and we appreciate your understanding as we strive to improve our service.",
+        "support": "If you'd like to support the site, you can do so here:",
+        "fanboxLink": "https://toakiryu.fanbox.cc"
+      }
+    }
+  },
   "statusMonitor": {
     "title": "Scratch Status",
     "Powered by Scratch API": "Powered by Scratch API",
