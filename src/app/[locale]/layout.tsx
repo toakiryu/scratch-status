@@ -153,7 +153,6 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   const gaId = process.env.GA_ID || "";
-  console.log("gaId", gaId);
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -161,7 +160,7 @@ export default async function LocaleLayout({
         <link rel="preconnect" href="https://giscus.app" />
         <link rel="preconnect" href="https://github.githubassets.com" />
       </head>
-      <GoogleAnalytics gaId="G-Y1LF8EML76" />
+      <GoogleAnalytics gaId={gaId} />
       <body
         className={`${inter.className} relative w-full h-full min-h-dvh overflow-x-clip`}
         suppressHydrationWarning
