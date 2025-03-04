@@ -36,7 +36,7 @@ export default function StatusCards({
               classNames?.card
             )}
           >
-            <div>
+            <div className="mb-auto">
               <h1 className="font-bold text-xl">{statusItem.title}</h1>
               <p
                 className={`text-sm ${
