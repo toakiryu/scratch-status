@@ -1,0 +1,123 @@
+{
+  "Metadata": {
+    "title": "Statut Scratch",
+    "description": "Surveilles le statut en temps réel des services Scratch, comme le temps de fonctionnement, la version, la charge du serveur et la santé de la base de données. Restes informé avec des indicateurs de statut détaillés pour les services clés de Scratch et la connectivité du cache."
+  },
+  "PageError": {
+    "title": "Erreur inconnue",
+    "retry": "Réessayer"
+  },
+  "PageNotFound": {
+    "title": "Page non trouvée"
+  },
+  "theme": {
+    "Toggle theme": "Changer le thème",
+    "Mode": "Mode",
+    "Light": "Clair",
+    "Dark": "Sombre",
+    "System": "Système"
+  },
+  "languages": {
+    "Language": "Langue",
+    "Select a language": "Sélectionnez une langue"
+  },
+  "pages": {
+    "requestLimit": {
+      "title": "Limite de requêtes atteinte",
+      "description": {
+        "part1": "Merci d'utiliser ce site.",
+        "part2": "Nous sommes ravis d'avoir autant d'utilisateurs.",
+        "part3": "Ce site est hébergé sur le <strong>plan gratuit de Vercel</strong>.",
+        "part4": "Actuellement, nous approchons des limites du service d'hébergement, donc l'accès est temporairement restreint.",
+        "part5": "Pour lever cette restriction, l'une des actions suivantes est requise :",
+        "list1": "Attendre la période de réinitialisation du statut d'utilisation de Vercel.",
+        "list2": "Mettre à niveau le plan d'hébergement.",
+        "part6": "Cependant, actuellement <strong>nous n'avons pas suffisamment de fonds pour mettre à niveau le plan</strong>.",
+        "part7": "Par conséquent, nous n'avons d'autre choix que d'imposer des restrictions d'accès. Merci de votre compréhension.",
+        "support": "Si vous souhaitez soutenir l'opération, vous pouvez le faire ici :",
+        "fanboxLink": "https://toakiryu.fanbox.cc"
+      }
+    },
+    "maintenance": {
+      "title": "En Maintenance",
+      "description": {
+        "part1": "Merci d'utiliser notre site.",
+        "part2": "Grâce à votre soutien, notre site a gagné beaucoup d'utilisateurs, et nous sommes actuellement en maintenance temporaire pour améliorer notre service.",
+        "part3": "Nous travaillons dur pour fournir un service plus stable après la maintenance.",
+        "part4": "Nous nous excusons pour le désagrément et apprécions votre compréhension tandis que nous nous efforçons d'améliorer notre service.",
+        "support": "Si vous souhaitez soutenir le site, vous pouvez le faire ici :",
+        "fanboxLink": "https://toakiryu.fanbox.cc"
+      }
+    }
+  },
+  "statusMonitor": {
+    "title": "Statut de Scratch",
+    "Powered by Scratch API": "Propulsé par l'API Scratch",
+    "errorFetchStatus": "Échec de la récupération des informations de statut.",
+    "yes": "Oui",
+    "no": "Non",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "status": {
+      "header": "Aperçu du statut",
+      "description": "Le statut actuel du système est affiché ci-dessous."
+    },
+    "statusCards": {
+      "website": {
+        "title": "Site Web",
+        "success": "Fonctionne normalement",
+        "timeout": "Délai de réponse élevé",
+        "danger": "Un problème est survenu"
+      },
+      "search": {
+        "title": "Recherche de projets",
+        "success": "Fonctionne normalement",
+        "timeout": "Délai de réponse élevé",
+        "danger": "Un problème est survenu"
+      },
+      "database": {
+        "title": "Variables Cloud",
+        "success": "Fonctionne normalement",
+        "timeout": "Délai de réponse élevé",
+        "danger": "Un problème est survenu"
+      }
+    },
+    "systemStatus": {
+      "title": "Statut du système",
+      "versionTitle": "Version :",
+      "uptimeTitle": "Fonctionnel depuis :",
+      "uptimeTitle-help": "Cette valeur est approximative.",
+      "loadTitle": "Charge :",
+      "loadTitle-help": "Cette valeur est approximative.",
+      "timestampTitle": "Horodatage :",
+      "timestampTitle-help": "Heure à laquelle le statut a été récupéré."
+    },
+    "sqlStatus": {
+      "title": "Statut SQL",
+      "main": "Principal",
+      "projectComments": "Commentaires de projet",
+      "galleryComments": "Commentaires de galerie",
+      "userProfileComments": "Commentaires de profil utilisateur"
+    },
+    "sql": {
+      "primary": "Base de données principale",
+      "primary-help": "Base de données principale",
+      "replica": "Base de données répliquée",
+      "replica-help": "Base de données répliquée (lecture seule)",
+      "ssl": "SSL",
+      "destroyed": "Connexions détruites",
+      "connections": "Connexions",
+      "min": "Min",
+      "max": "Max",
+      "used": "Utilisées",
+      "free": "Libres",
+      "acquires": "En attente",
+      "creates": "Créations"
+    },
+    "cacheStatus": {
+      "title": "Statut du cache",
+      "connected": "Connecté",
+      "ready": "Prêt"
+    }
+  }
+}

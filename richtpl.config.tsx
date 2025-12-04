@@ -26,7 +26,7 @@ const config: Config = {
     // Default locale for the site
     defaultLocale: "ja",
     // List of supported locales
-    locales: ["ja", "en"],
+    locales: ["ja", "en", "fr"],
     // Locale-specific configurations
     localeConfigs: {
       ja: {
@@ -38,6 +38,11 @@ const config: Config = {
         label: "English", // Label for the English locale
         htmlLang: "en-US", // HTML language attribute for English
         path: "en", // Path prefix for English locale
+      },
+      fr: {
+        label: "Français", // Label for the French locale
+        htmlLang: "fr-FR", // HTML language attribute for French
+        path: "fr", // Path prefix for French locale
       },
     },
     selectButton: true, // Option to include a locale selection button
